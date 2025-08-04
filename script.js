@@ -371,3 +371,89 @@ function initNavbarScroll() {
         }
     });
 }
+
+// Game Gallery Functions
+let currentImageIndex = 0;
+const gameImages = [
+    { src: 'game1.png', title: 'Main Menu', description: 'Welcome screen with futuristic space theme and elegant UI design' },
+    { src: 'game2.png', title: 'Game Over Screen', description: 'Detailed statistics and performance metrics with retry options' },
+    { src: 'game3.png', title: 'Gameplay Action', description: 'Intense space combat with smooth animations and particle effects' },
+    { src: 'game4.png', title: 'Features Overview', description: 'Advanced scoring system and competitive leaderboard functionality' }
+];
+
+function openGameGallery(event) {
+    event.preventDefault();
+    const modal = document.getElementById('gameGalleryModal');
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Reset to first image
+    currentImageIndex = 0;
+    updateGalleryDisplay();
+}
+
+function closeGameGallery() {
+    const modal = document.getElementById('gameGalleryModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+function showImage(index) {
+    currentImageIndex = index;
+    updateGalleryDisplay();
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % gameImages.length;
+    updateGalleryDisplay();
+}
+
+function previousImage() {
+    currentImageIndex = (currentImageIndex - 1 + gameImages.length) % gameImages.length;
+    updateGalleryDisplay();
+}
+
+function updateGalleryDisplay() {
+    // Update main image
+    const mainImage = document.getElementById('mainGalleryImage');
+    mainImage.src = gameImages[currentImageIndex].src;
+    mainImage.alt = gameImages[currentImageIndex].title;
+    
+    // Update thumbnails
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentImageIndex);
+    });
+    
+    // Update description
+    const descriptions = document.querySelectorAll('.description-item');
+    descriptions.forEach((desc, index) => {
+        desc.classList.toggle('active', index === currentImageIndex);
+    });
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('gameGalleryModal');
+    if (event.target == modal) {
+        closeGameGallery();
+    }
+}
+
+// Keyboard navigation for gallery
+document.addEventListener('keydown', function(event) {
+    const modal = document.getElementById('gameGalleryModal');
+    if (modal.style.display === 'block') {
+        switch(event.key) {
+            case 'Escape':
+                closeGameGallery();
+                break;
+            case 'ArrowLeft':
+                previousImage();
+                break;
+            case 'ArrowRight':
+                nextImage();
+                break;
+        }
+    }
+});
