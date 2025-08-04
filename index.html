@@ -86,9 +86,6 @@
                     Whether it’s coding from scratch or customizing platforms, I deliver high-quality solutions across the board.
                 </p>
             </div>
-            <div class="about-image">
-                <img src="profile-image.jpg" alt="Aamna Zafar">
-            </div>
         </div>
     </div>
 </section>
@@ -100,11 +97,29 @@
             <div class="skills-grid">
                 <div class="skill-item">
                     <div class="skill-info">
-                        <span>Java/JavaScript</span>
+                        <span>JavaScript</span>
                         <span>97%</span>
                     </div>
                     <div class="skill-bar">
                         <div class="skill-level" style="width: 97%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Node.js</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span>Java</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 88%"></div>
                     </div>
                 </div>
                 <div class="skill-item">
@@ -281,6 +296,19 @@
                     </div>
                 </div>
 
+                <div class="portfolio-item wordpress">
+                    <div class="portfolio-image">
+                        <img src="wordpress3.png" alt="DevQuantas">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-info">
+                                <h3>DevQuantas</h3>
+                                <p>WordPress, Custom Development</p>
+                                <a href="https://devquantas.online/" class="portfolio-link view-btn">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Shopify Projects -->
                 <div class="portfolio-item shopify">
                     <div class="portfolio-image">
@@ -294,40 +322,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item shopify">
-                    <div class="portfolio-image">
-                        <img src="hiut-denim.jpg" alt="Hiut Denim Co. - Premium Denim Store">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Hiut Denim Co.</h3>
-                                <p>Shopify Plus, Custom Theme</p>
-                                <a href="https://hiutdenim.co.uk" class="portfolio-link view-btn">Visit Store</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Full Stack Development Projects -->
                 <div class="portfolio-item web">
                     <div class="portfolio-image">
-                        <img src="portfolio-3.jpg" alt="Full Stack Application">
+                        <img src="game1.png" alt="Cosmic Commander Elite - Space Game">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
-                                <h3>Task Manager Pro</h3>
-                                <p>React, Node.js, MongoDB</p>
-                                <a href="https://taskmanager.pro" class="portfolio-link view-btn">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item web">
-                    <div class="portfolio-image">
-                        <img src="portfolio-5.jpg" alt="Full Stack Application">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Real Estate Platform</h3>
-                                <p>Next.js, Prisma, PostgreSQL</p>
-                                <a href="https://realestate.pro" class="portfolio-link view-btn">View Project</a>
+                                <h3>Cosmic Commander Elite</h3>
+                                <p>JavaScript, HTML5 Canvas, CSS3</p>
+                                <div class="portfolio-buttons">
+                                    <a href="#" class="portfolio-link view-btn" onclick="openGameGallery(event)">View Gallery</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -335,6 +341,50 @@
             </div>
         </div>
     </section>
+
+    <!-- Game Gallery Modal -->
+    <div id="gameGalleryModal" class="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGameGallery()">&times;</span>
+            <div class="gallery-header">
+                <h2>Cosmic Commander Elite - Game Gallery</h2>
+                <p>Epic space adventure with stunning visuals and engaging gameplay</p>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-main">
+                    <img id="mainGalleryImage" src="game1.png" alt="Game Screenshot">
+                    <div class="gallery-nav">
+                        <button class="gallery-btn prev" onclick="previousImage()">&larr;</button>
+                        <button class="gallery-btn next" onclick="nextImage()">&rarr;</button>
+                    </div>
+                </div>
+                <div class="gallery-thumbnails">
+                    <img src="game1.png" alt="Main Menu" class="thumbnail active" onclick="showImage(0)">
+                    <img src="game2.png" alt="Game Over Screen" class="thumbnail" onclick="showImage(1)">
+                    <img src="game3.png" alt="Gameplay" class="thumbnail" onclick="showImage(2)">
+                    <img src="game4.png" alt="High Scores" class="thumbnail" onclick="showImage(3)">
+                </div>
+                <div class="gallery-description">
+                    <div class="description-item active">
+                        <h4>Main Menu</h4>
+                        <p>Welcome screen with futuristic space theme and elegant UI design</p>
+                    </div>
+                    <div class="description-item">
+                        <h4>Game Over Screen</h4>
+                        <p>Detailed statistics and performance metrics with retry options</p>
+                    </div>
+                    <div class="description-item">
+                        <h4>Gameplay Action</h4>
+                        <p>Intense space combat with smooth animations and particle effects</p>
+                    </div>
+                    <div class="description-item">
+                        <h4>Features Overview</h4>
+                        <p>Advanced scoring system and competitive leaderboard functionality</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
